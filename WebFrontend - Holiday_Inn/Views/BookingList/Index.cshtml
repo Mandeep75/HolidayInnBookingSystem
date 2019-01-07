@@ -1,0 +1,48 @@
+﻿@model List<CafeReadModels.OpenBookings.BookingStatus>
+@{
+    ViewBag.Title = "All Bookings";
+}
+<h2>Bookings List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Client Name</th>
+            <th>Client Phone</th>
+            <th>Client Email</th>
+            <th>Checkin Date</th>
+            <th>Checkout Date</th>
+            <th>CheckedOut</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            var i = 0;
+            using (Html.BeginForm("MarkPrepared", "Chef"))
+            {
+                @Html.Hidden("id", booking.BookingId)
+                {
+        <tr>
+            <td>@booking.RoomNumber</td>
+            <td>@booking.Client.Name</td>
+            <td>@booking.Client.Phone</td>
+            <td>@booking.Client.Email</td>
+            <td>@String.Format("{0:dd/MM/yyyy}", booking.CheckinDate.Date)</td>
+            <td>@String.Format("{0:dd/MM/yyyy}", booking.CheckoutDate.Date)</td>
+            <td>@booking.HasClientCheckedOut</td>
+            <td>@Html.ActionLink("EDIT", "Status", "Booking", new { id = booking.RoomNumber },null)</td>
+
+        </tr>
+                }
+            }
+        }
+    </tbody>
+        </table>
+
+        
+        <hr />
+    
+

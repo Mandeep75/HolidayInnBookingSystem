@@ -1,0 +1,14 @@
+.vs/
+BookingSystemUnitTests/bin/
+BookingSystemUnitTests/obj/
+Events/bin/
+Events/obj/
+Framework.CQRS/bin/
+Framework.CQRS/obj/
+HolidayInn/bin/
+HolidayInn/obj/
+HolidayInnReadModels/bin/
+HolidayInnReadModels/obj/Debug/CafeReadModels.dll
+HolidayInnReadModels/obj/
+WebFrontend - Holiday_Inn/bin/
+WebFrontend - Holiday_Inn/obj/

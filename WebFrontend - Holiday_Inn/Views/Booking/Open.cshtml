@@ -1,0 +1,48 @@
+﻿@model HolidayInn.Booking.CreateBooking
+@{
+    ViewBag.Title = "Create Booking";
+}
+
+<h2>Create Booking</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+<fieldset>
+    <label>Room Number</label>
+
+    @Html.TextBoxFor(m => m.RoomNumber)
+    @Html.ValidationMessageFor(m => m.RoomNumber, "", new { @class = "error" })
+    <label>
+        Staff Member
+    </label>
+    @Html.DropDownListFor(m => m.StaffId, (ViewBag.WaitStaff as List<string>)
+        .Select(w => new SelectListItem { Text = w, Value = w }))
+
+    <label>Checkin Date</label>
+
+    @Html.TextBoxFor(m => m.CheckinDate)
+    @Html.ValidationMessageFor(m => m.CheckinDate, "", new { @class = "error" })
+
+
+    <label>Checkout Date</label>
+
+    @Html.TextBoxFor(m => m.CheckoutDate)
+    @Html.ValidationMessageFor(m => m.CheckoutDate)
+
+    <label>Booking in the name of:</label>
+    @Html.TextBoxFor(m => m.Client.Name)
+    @Html.ValidationMessageFor(m => m.Client.Name, "", new { @class = "error" })
+
+    <label>Phone</label>
+    @Html.TextBoxFor(m => m.Client.Phone)
+    @Html.ValidationMessageFor(m => m.Client.Phone, "", new { @class = "error" })
+    <br>
+    <label>Email</label>
+    @Html.TextBoxFor(m => m.Client.Email)
+    @Html.ValidationMessageFor(m => m.Client.Email, "", new { @class = "error" })
+    <br>
+    <button type="submit" class="btn">Create Booking</button>
+</fieldset>
+
+}
+

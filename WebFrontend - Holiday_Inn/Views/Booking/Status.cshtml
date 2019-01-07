@@ -1,0 +1,53 @@
+﻿@model CafeReadModels.OpenBookings.BookingStatus
+@{
+    ViewBag.Title = "Booking Status";
+}
+<h2>Booking Details for Room Number @Model.RoomNumber</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>Client Name</th>
+            <th>Client Phone</th>
+            <th>Client Email</th>
+            <th>Checkin Date</th>
+            <th>Checkout Date</th>
+            <th>CheckedOut</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+            <td>@Model.Client.Name</td>
+            <td>@Model.Client.Phone</td>
+            <td>@Model.Client.Email</td>
+            <td>@String.Format("{0:dd/MM/yyyy}", Model.CheckinDate.Date)</td>
+            <td>@String.Format("{0:dd/MM/yyyy}", Model.CheckoutDate.Date)</td>
+            <td>@Model.HasClientCheckedOut</td>
+
+        </tr>
+    </tbody>
+</table>
+@*<button type="submit" class="btn">Checkout</button>*@
+
+<div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+
+                <th width="200">
+                    <i class="icon-remove"></i>
+                    @Html.ActionLink("Cancel Booking", "Close", new { id = Model.RoomNumber })
+                </th>
+                <th>@Html.ActionLink("Checkout", "Checkout", new { id = Model.RoomNumber })</th>
+
+
+            </tr>
+            </tbody>
+        </table>
+
+</div>
+
